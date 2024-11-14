@@ -40,7 +40,7 @@ function editComment(button) {
   editForm.id = '';
   editForm.querySelector('.user-name').value = commentContent.querySelector('h3').innerText;
   editForm.querySelector('.comment-textarea').value = commentText.innerText;
-  button.closest('.comment').after(editForm); // Insert edit form below the current comment
+  button.closest('.comment').after(editForm);
 
   commentText.style.display = 'none';
   button.style.display = 'none';
@@ -54,9 +54,8 @@ function deleteComment(button) {
 function postComment(button) {
   const replyForm = button.closest('.reply-form');
   const userName = replyForm.querySelector('.user-name').value;
-  const commentText = replyForm.querySelector('.comment-textarea').value;
+  const commentText = replyForm.querySelector('.comment-textarea').value
 
-  // Randomly select a user image
   const randomImage = images[Math.floor(Math.random() * images.length)];
 
   const newComment = document.createElement('div');
@@ -75,8 +74,8 @@ function postComment(button) {
     </div>
   `;
 
-  replyForm.after(newComment); // Insert the new comment below the reply form
-  replyForm.remove(); // Remove the reply form after posting
+  replyForm.after(newComment); 
+  replyForm.remove(); 
 }
 
 function cancelReplyForm(button) {
